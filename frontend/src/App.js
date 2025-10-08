@@ -24,11 +24,8 @@ import Dashboard from "./admin/Dashboard";
 
 // Auto-switch API between local and deployed environments
 const API =
-  process.env.REACT_APP_API_URL ||
-  (window.location.hostname === "localhost"
-    ? "http://localhost:5000"
-    : "https://ts-anime-backend.onrender.com");
-
+  process.env.REACT_APP_API_URL || "http://localhost:5000";
+  
 function AppWrapper() {
   const location = useLocation();
 
