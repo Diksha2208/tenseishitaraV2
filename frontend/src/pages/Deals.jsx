@@ -5,7 +5,7 @@ const API_BASE =
   process.env.REACT_APP_API_URL ||
   (window.location.hostname === "localhost"
     ? "http://localhost:5000"
-    : "https://ts-anime-backend.onrender.com");
+    : "https://tenseishitarav2.onrender.com");
 
 function getImageUrl(filename) {
   if (!filename) return "/images/placeholder.png";

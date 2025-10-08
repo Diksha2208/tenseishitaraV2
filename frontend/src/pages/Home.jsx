@@ -4,11 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 // Dynamic API base (works locally and in prod)
-const API_BASE =
-  process.env.REACT_APP_API_URL ||
-  (window.location.hostname === "localhost"
-    ? "http://localhost:5000"
-    : "https://tenseishitarav2.onrender.com");
+const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
 
 // Safe image URL helper
 function getImageUrl(filename) {
