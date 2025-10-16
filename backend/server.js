@@ -8,6 +8,9 @@ const authRoutes = require("./routes/auth");
 const productRoutes = require("./routes/products");
 const cartRoutes = require("./routes/cart");
 const dashboardRoutes = require("./routes/dashboard");
+const orderRoutes = require("./routes/order");
+const addressRoutes = require("./routes/addresses");
+
 
 const app = express();
 
@@ -40,7 +43,8 @@ app.use("/api/auth", authRoutes);
 app.use("/api/products", productRoutes);
 app.use("/api/cart", cartRoutes);
 app.use("/api/dashboard", dashboardRoutes);
-
+app.use("/api/orders", orderRoutes);
+app.use("/api/addresses", addressRoutes);
 // Default route
 app.get("/", (req, res) => res.send("Backend is running!"));
 

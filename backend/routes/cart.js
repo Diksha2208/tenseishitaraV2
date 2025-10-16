@@ -1,11 +1,12 @@
 const express = require('express');
 const db = require('../db');
 const router = express.Router();
-
+const authMiddleware = require("../middleware/auth"); 
 // ----------------- Get cart-----------------
-router.get('/', (req, res) => {
+router.get('/', authMiddleware,(req, res) => {
   const sessionId = req.session.id;
   const userId = req.session.user?.id || null;
+  console.log(req);
   db.query(
     'SELECT c.id, p.name, p.price, c.quantity, o.option_value, o.image_url FROM carts c LEFT JOIN products p ON c.product_id = p.id LEFT JOIN product_options o ON c.selected_option_id = o.id WHERE c.session_id = ? OR c.user_id = ?',
     [sessionId, userId],
@@ -17,9 +18,10 @@ router.get('/', (req, res) => {
 });
 
 // ----------------- Add to cart -----------------
-router.post('/add', (req, res) => {
+router.post('/add',authMiddleware, (req, res) => {
   const sessionId = req.session.id;
   const userId = req.session.user?.id || null;
+    console.log(req);
   const { product_id, selected_option_id, quantity } = req.body;
 
   db.query(
@@ -33,7 +35,7 @@ router.post('/add', (req, res) => {
 });
 
 // ----------------- Clear cart after checkout -----------------
-router.delete('/clear', (req, res) => {
+router.delete('/clear', authMiddleware,(req, res) => {
   const sessionId = req.session.id;
   const userId = req.session.user?.id || null;
   db.query(
