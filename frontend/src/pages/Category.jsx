@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 // 🌍 Use backend URL from env variable (works on Vercel + local)
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_BASE =  process.env.REACT_APP_API_URL || window.location.origin;
 
 // ✅ Unified image path helper
 function getImageUrl(filename) {

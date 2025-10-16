@@ -15,6 +15,8 @@ import Account from "./pages/Account";
 import Categories from "./pages/Categories";
 import AllProducts from "./pages/AllProducts";
 import Deals from "./pages/Deals";
+import Checkout from "./pages/Checkout";
+import ThankYou from "./pages/ThankYou";
 
 
 // Admin pages
@@ -23,8 +25,7 @@ import UploadProduct from "./admin/UploadProduct";
 import Dashboard from "./admin/Dashboard";
 
 // Auto-switch API between local and deployed environments
-const API =
-  process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API = process.env.REACT_APP_API_URL || "http://localhost:5000";
   
 function AppWrapper() {
   const location = useLocation();
@@ -193,6 +194,11 @@ function AppWrapper() {
           path="/account"
           element={<PrivateRoute element={<Account user={user} setUser={setUser} />} />}
         />
+         <Route
+            path="/checkout"
+            element={<Checkout cart={cart} user={user} setCart={setCart} />}
+/>
+<Route path="/thankyou" element={<ThankYou />} />
 
         {/* ADMIN ROUTES */}
         <Route

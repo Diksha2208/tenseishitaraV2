@@ -2,11 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 
 // Backend URL
-const API_BASE =
-  process.env.REACT_APP_API_URL ||
-  (window.location.hostname === "localhost"
-    ? "http://localhost:5000"
-    : "https://ts-anime-backend.onrender.com");
+const API_BASE = process.env.REACT_APP_API_URL || window.location.origin;
 
 function getFullUrl(path) {
   if (!path) return "/placeholder.png";

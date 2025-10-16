@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_BASE =  process.env.REACT_APP_API_URL || window.location.origin;
 
 function getImageUrl(filename) {
   if (!filename) return "/placeholder.png";
@@ -271,18 +271,18 @@ export default function Cart({
 
                   {/* Remove */}
                   <button
-                    className="btn btn-sm"
+                     class="btn btn-danger"
                     onClick={() => handleRemove(key)}
-                    style={{
-                      background: "rgba(239,68,68,0.2)",
-                      color: "#ef4444",
-                      borderRadius: "50%",
-                      width: 36,
-                      height: 36,
-                      fontSize: 18,
-                    }}
+                    // style={{
+                    //   background: "rgba(239,68,68,0.2)",
+                    //   color: "#ef4444",
+                    //   borderRadius: "50%",
+                    //   width: 36,
+                    //   height: 36,
+                    //   fontSize: 18,
+                    // }}
                   >
-                    ×
+                    X
                   </button>
                 </div>
               );

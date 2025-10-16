@@ -4,7 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 // Dynamic API base (works locally and in prod)
-const API_BASE = process.env.REACT_APP_API_URL || "http://localhost:5000";
+const API_BASE =  process.env.REACT_APP_API_URL || window.location.origin;
 
 // Safe image URL helper
 function getImageUrl(filename) {
@@ -124,23 +124,35 @@ export default function Home({ user, cart, setCart, addToCart, siteDiscount }) {
               </div>
             </div>
 
-            {/* Right gradient box (hero visual) */}
-            <div className="col-12 col-md-5">
-              <div
-                style={{
-                  width: "100%",
-                  aspectRatio: "4 / 3",
-                  borderRadius: 20,
-                  background:
-                    "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
-                  border: "1px solid rgba(229,231,235,.15)",
-                }}
-              />
-            </div>
-          </div>
-        </div>
-      </section>
-   {/* 3) CATEGORIES — minimal chip row (points to /categories hub) */}
+     
+                  <div className="col-12 col-md-5">
+                    <div
+                    style={{
+                      width: "100%",
+                      aspectRatio: "4 / 3",
+                      borderRadius: 20,
+                      background:
+                      "linear-gradient(135deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02))",
+                      border: "1px solid rgba(229,231,235,.15)",
+                      overflow: "hidden",
+                    }}
+                    >
+                    <img
+                      src="../images/discount.png"
+                      alt="Discount"
+                      style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      borderRadius: 20,
+                      }}
+                    />
+                    </div>
+                  </div>
+                  </div>
+                </div>
+                </section>
+               {/* 3) CATEGORIES — minimal chip row (points to /categories hub) */}
       <section className="py-5" id="categories" style={{ background: colors.bg }}>
         <div className="container">
           {/* Centered, large white heading (matches “Deals”) */}

@@ -180,7 +180,7 @@ export default function Navbar({ user, logout, cart = [] }) {
             Categories
           </Link>
           <Link to="/products" className="nav-link" style={linkMid}>
-            All Products
+            Search Products
           </Link>
           <Link to="/deals" className="nav-link" style={linkMid}>
             Deals
