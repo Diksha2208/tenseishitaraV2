@@ -3,7 +3,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
 
 // If you already set axios.defaults.baseURL in App, you can remove API.
-const API =  process.env.REACT_APP_API_URL || window.location.origin;
+const API =  process.env.REACT_APP_API_URL ;
 
 export default function Login({ setUser }) {
   const [username, setUsername] = useState("");
